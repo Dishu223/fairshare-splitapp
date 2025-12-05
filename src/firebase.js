@@ -1,8 +1,8 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider } from 'firebase/auth'; // Import GoogleAuthProvider directly
 import { getFirestore } from 'firebase/firestore';
 
-// REPLACE THIS OBJECT WITH YOUR OWN FROM FIREBASE CONSOLE
+// 🔴 REPLACE THESE WITH YOUR KEYS FROM FIREBASE CONSOLE 🔴
 const firebaseConfig = {
   apiKey: "AIzaSyDaITUTfsRM4L7ouQXabcv3mL0WucW9vRA",
   authDomain: "fairshare-704e3.firebaseapp.com",
@@ -13,7 +13,11 @@ const firebaseConfig = {
   measurementId: "G-FH2DTX97N7"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
+
+// Export services
 export const auth = getAuth(app);
 export const db = getFirestore(app);
-export const appId = "fairshare-web"; // You can keep this string
+export const googleProvider = new GoogleAuthProvider(); // Correct usage
+export const appId = "fairshare-web";
